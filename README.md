@@ -1,10 +1,10 @@
-## Advising-App-Senior-Project
-#Created by Andrew Aguilar and Kamron Seeram
+# Advising-App-Senior-Project
+## Created by Andrew Aguilar and Kamron Seeram
  This application is a web based advising scheduler.  Students are verified via their Toro-mail email accounts, and then given access to a form where they can view available advising dates for their desired advisor.  After they have selected their desired time and desired advisor both the student and the advisor are emailed details of the appointment.  The website is optimized to run on mobile devices as well as laptop and desktop computers. 
 
 
 
-# Setup
+## Setup
 1. Clone the repository:
 ```sh
 $ git clone https://github.com/andrewronald/Advising-App-Senior-Project.git
