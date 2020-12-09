@@ -24,6 +24,7 @@ $ pip install -r requirements.txt
 4. Once requirements are finished installing:
 ```sh
 (env)$ cd project
+(env)$ python manage.py migrate
 (env)$ python manage.py runserver
 ```
 
