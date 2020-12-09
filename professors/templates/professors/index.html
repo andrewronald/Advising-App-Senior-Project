@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <title>Student Adivising Scheduler</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      /* Remove the navbar's default margin-bottom and rounded borders */
+      .navbar {
+        background-color: maroon;
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+      .navbar a {
+        color: white !important;
+      }
+      .navbar li a {
+        color: white !important;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .navbar li a:hover {
+        color: white !important;
+        background-color: gold !important;
+        transition: 0.6s;
+      }
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+        background-color: #f2f2f2;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Aligning text left*/
+      .jumbotron {
+        text-align: left;
+        padding-left: 20px;
+        background-color: white;
+      }
+
+      /* Change Button Color*/
+      .btn-primary,
+      .btn-primary:active,
+      .btn-primary:visited {
+        background-color: maroon !important;
+      }
+
+      .btn-primary:hover {
+        color: black !important;
+        background-color: gold !important;
+        transition: 0.6s;
+      }
+
+      /* Display Logo*/
+      .logo-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: visible;
+        margin-top: -40px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <img
+          src="{% static 'CSDepartmentLogo.jpg' %}"
+          style="display: inline-block"
+        />
+      </div>
+    </div>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <div class="logo-image">
+              <img
+                src="{% static 'CSUDH_Logo.png' %}"
+                style="display: inline-block"
+              />
+            </div>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="/professors/">Advisors</a></li>
+            <li>
+              <a href="https://www.csudh.edu/csc/about/" target="_blank"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="https://www.csudh.edu/csc/contact/" target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li>
+              <a href="/"
+                ><span class="glyphicon glyphicon-log-in"></span> Login</a
+              >
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <div class="container">
+      <h1 class="text-center">Advisors</h1>
+      {% for professor in professor.all %}
+      <div class="row">
+        <div class="card mb-3" style="width: 67.5em; margin: 0 auto">
+          <div class="row">
+            <div class="col-md-4">
+              <img
+                class="card-img-top img-responsive"
+                src="{{ professor.profile_image.url }}"
+                class="card-img"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                <b>{{ professor.first_name }} {{ professor.last_name }}</b>
+              </h5>
+              <p class="card-text">{{ professor.professor_text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    {% endfor %}
+    <br />
+
+    <!--
+    <footer class="container-fluid text-center">
+      <p>Footer Text</p>
+    </footer>
+-->
+  </body>
+</html>
